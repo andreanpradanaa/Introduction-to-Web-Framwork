@@ -1,0 +1,26 @@
+<h1> Items </h1>
+
+
+<%= link_to 'New Item', new_item_path%>
+
+<table border="1px solid black" cellspacing=0>
+  <thead>
+    <tr text-align="center">
+        <td><b>Name</b></td>
+        <td><b>Price</b></td>
+        <td align="center" colspan="2"><b>Action</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, item %></td>
+        <td><%= item.price %></td>
+				<td><%= link_to "Edit", edit_item_path(item)%></td>
+				<td><%= button_to "Destroy", item_path(item), method: :delete,  data: {confirm: "Are you sure?"}%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+		
